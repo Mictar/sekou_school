@@ -16,10 +16,14 @@ tablec=$(gui_rep)/Ktable.class
 fenetre=$(gui_rep)/FenetrePrincipale.java
 fenetrec=$(gui_rep)/FenetrePrincipale.class
 
+# calculatrice de l'application
+calculatrice=$(gui_rep)/Calculatrice.java
+calculatricec=$(gui_rep)/Calculatrice.class
+
 App.class : $(app) $(fenetrec)
 	javac $(app)
 
-$(fenetrec): $(fenetre) $(menuc) $(tablec)
+$(fenetrec): $(fenetre) $(menuc) $(tablec) $(calculatricec)
 	javac $(fenetre)
 
 $(menuc): $(menu)
@@ -27,6 +31,10 @@ $(menuc): $(menu)
 
 $(tablec): $(table)
 	javac $(table)
+
+$(calculatricec): $(calculatrice)
+	javac $(calculatrice)
+
 
 run:
 	java sk/App

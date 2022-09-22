@@ -5,6 +5,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import sk.gui.Calculatrice;
+
+import sk.gui.Ktable;
 
 
 class KMenuItem extends JMenuItem
@@ -21,6 +24,7 @@ class KMenu extends JMenu
     {
         super(name);
     }
+    
 }
 
 public class Menu extends JMenuBar
@@ -60,7 +64,7 @@ public class Menu extends JMenuBar
     private String[] aide_name = {"Documentation", "Exemple d'utilisation"};
 
     private String[] edition_name = {"Retour", "Avant", "Zoom", 
-                                    "Recherche", "Correcteur"};
+                                    "Recherche", "Correcteur", "Calculatrice"};
 
     public Menu()
     {
@@ -123,7 +127,18 @@ public class Menu extends JMenuBar
     this.addItem(menus[7], item_aide);
 
     
+    // initialisation des action des items
+
+    this.addAction();
+    
 	
+    }
+
+    private void addAction()
+    {
+        /*
+         * Fonction permetant d'ajouter des actions a des items
+         */
     }
 
     private void addMenu(KMenu[] menus)

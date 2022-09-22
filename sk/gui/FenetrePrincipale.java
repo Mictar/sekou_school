@@ -7,10 +7,13 @@ import sk.gui.Menu;
 import sk.gui.Ktable;
 
 import javax.swing.JScrollPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JDesktopPane;
 
 //import sk.gui.*;
 import javax.swing.JFrame;
 
+import sk.gui.Calculatrice;
 
 public class FenetrePrincipale extends JFrame
 {
@@ -18,6 +21,8 @@ public class FenetrePrincipale extends JFrame
      * Classe contenant la fenetre principale de
      * l'application
      */
+    private JDesktopPane desktop = new JDesktopPane();
+
     public FenetrePrincipale()
     {
         Object[][] data = new Object[][] {
@@ -34,9 +39,12 @@ public class FenetrePrincipale extends JFrame
         
         String [] title = {"Id", "Nom", "Adresse", "Taux horaire", "A temps partiel"};
         
-        Ktable tabscroll = new Ktable(data, title);
+        //Ktable tabscroll = new Ktable(data, title);
         
-        this.getContentPane().add(new JScrollPane(tabscroll));
+        desktop.add(new Calculatrice());
+        //this.getContentPane().add(new JScrollPane(tabscroll));
+
+        this.getContentPane().add(desktop);
 
         this.setSize(600, 700);
 	
@@ -45,3 +53,4 @@ public class FenetrePrincipale extends JFrame
         this.setVisible(true);
     }
 };
+
