@@ -10,11 +10,11 @@ calculatrice=Calculatrice.java
 # fichier de Menu
 menu=Menu.java
 
-eleve=./gui/Eleve.java
+preview=Preview.java
 
 tab=Ktable.java
 # fichier de setting
-FenetrePrincipale.class: $(fenetre) Ktable.class Menu.class
+FenetrePrincipale.class: $(fenetre) Ktable.class Menu.class Calculatrice.class Preview.class
 	javac FenetrePrincipale.java
 
 #Theme.class: Theme.java
@@ -26,8 +26,11 @@ Ktable.class: $(tab)
 Menu.class: $(menu)
 	javac $(menu)
 
-#Calculatrice.class : $(calculatrice)
-#	javac $(calculatrice)
+Preview.class: $(preview)
+	javac $(preview)
+	
+Calculatrice.class : $(calculatrice)
+	javac ../../$(calculatrice)
 
 clean: 
 	rm *.class

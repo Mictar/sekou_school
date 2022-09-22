@@ -1,13 +1,37 @@
+# application principale de l'application
 app=sk/App.java
+appc=sk/App.class
 
-gui_rep=sk/gui/
-gui_make="$(gui_rep)/Makefile"
+gui_rep=sk/gui
 
-App.class : $(app) fenetre
-	java "$(app)"
+# menu de l'application
+menu=$(gui_rep)/Menu.java
+menuc=$(gui_rep)/Menu.class
 
-fenetre :
-	make -C $(gui_rep)
+# table de l'application
+table=$(gui_rep)/Ktable.java
+tablec=$(gui_rep)/Ktable.class
+
+# fenetre de l'application
+fenetre=$(gui_rep)/FenetrePrincipale.java
+fenetrec=$(gui_rep)/FenetrePrincipale.class
+
+App.class : $(app) $(fenetrec)
+	javac $(app)
+
+$(fenetrec): $(fenetre) $(menuc) $(tablec)
+	javac $(fenetre)
+
+$(menuc): $(menu)
+	javac $(menu)
+
+$(tablec): $(table)
+	javac $(table)
+
+run:
+	java sk/App
+
+
 
 clean:
-	make -C $(gui_rep) clean
+	rm sk/*.class $(gui_rep)/*.class
